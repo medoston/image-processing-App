@@ -1,0 +1,56 @@
+<MyGrid>
+    id:my_widget
+    GridLayout:
+        size: root.width, root.height
+        cols: 2
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+
+            padding: 20
+            spacing: 20
+ 
+            Button:
+                text: "Bluring"
+                on_press: my_widget.blur()
+
+            Button:
+                text: "Edges"
+                on_press: my_widget.Edges()
+
+            Button:
+                text: "sharpening "
+                on_press: my_widget.sharp()
+
+            Button:
+                text: "Smoothing"
+                on_press: my_widget.smoothing()
+
+            Button:
+                text: "Noise Reduction"
+                on_press: my_widget.Noise_red()
+
+            Button:
+                text: "Cartoon"
+                on_press: my_widget.cartoon()
+
+            Button:
+                text: "denoise_fourier"
+                on_press:my_widget.denoise_fourier()
+            Button:
+                text: "Back to black"
+                on_press:my_widget.Gray()
+            Button:
+                text: "Salt And Peper"
+                on_press:my_widget.SaltAndPeper()
+
+        BoxLayout:
+            orientation: "vertical"
+            Image:
+                id: myimg
+                source: "noise3.JPG" 
+
+            FileChooserIconView:
+                id: filechooser
+                size_hint: (1,0.5)
+                on_selection:my_widget.selected(filechooser.selection)
